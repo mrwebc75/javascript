@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>기본 생성자함수로 인스턴스 생성</h1>
+	<pre>
+		Number()
+		String()
+		Boolean()
+		Objcet()
+		Array()
+		Function()
+		
+		Date();//날짜, 시간정보 제공
+	</pre>
+	<hr />
+	
+	<script>
+		//Number() 생성자 함수를 이용해서 인스턴스를 생성
+		const age = new Number(17);//객체변수
+		document.write(`typeof age = ${typeof age}<br />`);
+		
+		
+		//String() 생성자 함수를 이용해서 인스턴스를 생성
+		const name = new String('duly');
+		document.write(`typeof name = ${typeof name}<br />`);//객체
+		
+		//Boolean() 생성자 함수를 이용해서 인스턴스를 생성
+		const isRobot = new Boolean(false);
+		document.write(`typeof isRobot = ${typeof isRobot}<br />`);//객체
+		
+		//Object() 생성자 함수를 이용해서 인스턴스를 생성
+		const duly = new Object({name : '둘리'});
+		document.write(`typeof duly = ${typeof duly}<br />`);//객체
+		
+		//Array() 생성자 함수를 이용해서 인스턴스를 생성
+		const arrNum = new Array(1,2,3);
+		document.write(`typeof arrNum = ${typeof arrNum}<br />`);//객체
+		
+		//Function() 생성자 함수를 이용해서 인스턴스를 생성
+		const sumFn = new Function('x,y', 'return x+y;');
+		document.write(`typeof sumFn = ${typeof sumFn}<br />`);//객체
+		
+		
+		//Date() 생성자 함수를 이용해서 인스턴스를 생성
+		const today = new Date();
+		document.write(`today = ${today}<br />`);//현재 시점의 날짜 시간 정보 출력
+		document.write(`typeof today = ${typeof today}<br />`);//객체
+		
+		
+		document.write(`올해는 = ${today.getFullYear()}년<br />`);
+	</script>
+</body>
+</html>

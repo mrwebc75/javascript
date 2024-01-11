@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<script>
+		1. 함수 호출시 값을 전달할 수 있는 함수
+		2. 매개변수를 Parameter(파라미터)라고 한다.
+		3. 함수호출시 전달하는 값을 인수, 인자라고 한다.
+		
+		4. 함수선언
+			function 함수명(매개변수1, 매개변수2, .... , 매개변수n){
+				여러줄의 명령문;
+			}
+		
+		5. 함수호출
+			함수명(인자1, 인자2, ...., 인자n);
+	</script>
+</head>
+<body>
+	<h1>매개변수를 가진 함수</h1>
+	
+	<script>
+		//makeCoffee 함수를 선언하시오.
+		function makeCoffee(c, p, s){
+			
+			console.log(c, p, s);
+			
+			document.write(`커피 ${c}스푼<br />`);
+			document.write(`프림 ${p}스푼<br />`);
+			document.write(`설탕 ${s}스푼<br />`);
+			document.write(`커피한잔 완성~!<br />`);
+			document.write(`---------------------<br />`);	
+		}
+		
+		//함수호출
+		makeCoffee(1,1,1);
+		makeCoffee(2,2,2);
+		makeCoffee(1,2,3);
+	</script>
+	
+	<script>
+		//문제1 - 두개의 매개변수 x, y에 값을 전달받아 그 합을 출력하는 addFn 함수를 선언하고, 
+		//인자 10, 20을 넣어 호출하는 코드를 작성하시오.
+		
+		function addFn(x, y){
+			console.log(`전달받은 두 값의 합은 ${x+y}`);
+		}
+		
+		addFn(10, 20);
+		
+		
+		//문제2 - 세개의 숫자를 매개변수 a, b, c에 전달받아, 그 곱을 출력하는 mulFn 함수를 선언하고, 
+		//인자 20,30,40을 넣어 호출하는 코드를 작성하시오.
+		
+		function mulFn(a, b, c){
+			console.log(`전달받은 세 값의 곱은 ${a*b*c}`);
+		}
+		
+		mulFn(20,30,40);
+	</script>
+</body>
+</html>

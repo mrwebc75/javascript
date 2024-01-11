@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form</title>
+</head>
+<body>
+	<h1>select, textarea</h1>
+	
+	<form name="frmLogin">
+		<fieldset>
+			<legend>기본정보</legend>
+			
+			<p>
+				<label for="area">거주지역</label>
+				
+				<select name="area" id="area">
+					<option value="">선택해주세요</option>
+					<option value="seoul" selected="selected">서울특별시</option>
+					<option value="daejeon">대전광역시</option>
+					<option value="busan">부산광역시</option>
+					<option value="incheon">인천광역시</option>
+					<option value="gwangju">광주광역시</option>
+				</select>
+			</p>
+			
+			<p>
+				<label for="cont">하고 싶은 말</label>
+				<textarea style="resize:none;" name="cont" id="cont" cols="50" rows="10"></textarea>
+			</p>
+		</fieldset>
+		
+		<p>
+			<button>확인</button>
+			<button type="button" onclick="history.back();">취소</button>
+		</p>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

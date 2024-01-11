@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript</title>
+</head>
+<body>
+	<h1>오리지날방법 - 비동기 방식으로 서버에 데이터 요청</h1>
+
+	<hr />
+
+	<input type="text" autofocus placeholder="id를 입력해 주세요" />
+	<button>데이터요청</button>
+
+	<p>전달받은 데이터 : <span class="result">?</span></p>
+
+	<script>
+		/*
+			AJAX란 비동기 자바스크립트와 XML (Asynchronous JavaScript And XML)을 말합니다. 
+			간단히 말하면, 서버와 통신하기 위해 XMLHttpRequest 객체를 사용하는 것을 말합니다. 
+			JSON, XML, HTML 그리고 일반 텍스트 형식 등을 포함한 다양한 포맷을 주고 받을 수 있습니다. 
+			AJAX의 강력한 특징은 페이지 전체를 리프레쉬 하지 않고서도 수행 되는 "비동기성"입니다. 
+			이러한 비동기성을 통해 사용자의 Event가 있으면 전체 페이지가 아닌 일부분만을 업데이트 할 수 있게 해줍니다.
+		*/
+	</script>
+
+	<script>
+		const $input = document.querySelector('input');
+		const $btn = document.querySelector('button');
+		
+		let xhr = null;
+		
+		//서버에서 응답이 왔을 때 실행할 함수
+		const responseAjax = function(){
+			if (xhr.readyState === 4){//비동기 요청에 대한 처리가 끝났다면(성공 or 실패)
+			
+				if(xhr.status === 200){//성공했다면
+					console.log(xhr.response);
+				
+				//데이터 역직렬화(객체화)
+				const res = JSON.parse(xhr.response);
+				
+				console.log('res =', res);
+				
+				document.querySelector('.result').textContent = res.data;
+				
+				}else{//실패했다면
+					alert('문제가 발생했습니다.');
+				}
+			}
+		};
+		
+		$btn.addEventListener('click', function(){
+			const id = $input.value.trim();
+			if(id===null || id===''){
+				alert('id를 입력해 주세요');
+				$input.focus();
+				return;
+			}
+			
+			//비동기 데이터요청을 진행할 수 있는 필수 객체변수
+			xhr = new XMLHttpRequest();
+			
+			//서버에서 응답이 왔을 때 실행할 함수 등록
+			xhr.onreadystatechange = responseAjax;
+			
+			xhr.open('get',`http://mvcweb.dothome.co.kr/40-simple-response-get.php?id=${id}`);
+			
+			xhr.send();
+		});
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

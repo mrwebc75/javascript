@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript</title>
+</head>
+<body>
+	<h1>JSON 직렬화와 역직렬화</h1>
+	
+	<pre>
+		1. JSON = JavaScript Object Notation
+		2. 자바스크립트 객체 표기법
+		3. 따옴표로 묶은 단순 문자열
+		
+		
+        4. 클라이언트가 서버로 데이터를 저장한 객체를 전송하려면 
+           반드시 문자열 형식으로 만들어야 하는데 이것을 직렬화라고 한다.
+           이때 만들어진 문자열 데이터를 JSON 데이터라고 한다.       
+           
+           => JSON.stringify(객체데이터)
+
+
+        5. 서버로부터 클라이언트에 전송된 JSON 데이터를 사용하려면
+           다시 객체형식으로 복원해야 하는데 이 작업을 역직렬화라고 한다.
+           
+           =>JSON.parse(JSON문자열)
+
+	</pre>
+	
+	<script>
+		//서버로 보내고 싶은 데이터라고 하자
+		const member = {
+			username : '아이유',
+			age : 30,
+			id : 'IU',
+			address : '쌍문동'
+		};
+		
+		//직렬화를 통해 문자열로 변환
+		const strMember = JSON.stringify(member);
+		
+		console.log('member =', member);//살아있는 객체
+		console.log('strMember =', strMember);//문자열
+		
+		
+		//역직렬화를 통해 객체로 변환
+		const objMember = JSON.parse(strMember);
+		console.log('objMember =', objMember);// 객체
+		
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

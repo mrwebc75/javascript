@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>동등(==, !=)연산자, 일치(===, !==)연산자</h1>
+	
+	
+	<script>
+		const x = 100; //number
+		const y = '100';//string
+		
+		//1. 동등연산자 - 값만비교
+		document.write(`x==y의 결과는 ${x==y}<br />`);//true
+		document.write(`x!=y의 결과는 ${x!=y}<br />`);//false
+		
+		//2. 일치연산자(권장) - 값과 타입까지 비교
+		document.write(`x===y의 결과는 ${x===y}<br />`);//false
+		document.write(`x!==y의 결과는 ${x!==y}<br />`);//true		
+	</script>
+</body>
+</html>

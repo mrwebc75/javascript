@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<script>
+		/*
+			1. 자동형변환	- 연산을 위해 데이터타입이 자동으로 변환되는 현상		
+			
+			2. 직접형변환 - 개발자가 필요에 의해 강제로 타입을 변환하는 것
+		*/
+	</script>
+</head>
+<body>
+	<h1>타입변환</h1>
+	<script>
+		let result = null;//'비어있다'라는 의미를 가진 특별한 값 -> null
+		
+		//1. 자동형변환
+		result = 5 + '10';//510 순간적으로 5를 문자열 5로 형변환후 연결연산을 시도한다.
+		result = 5 * '10';//50 순간적으로 '10'을 숫자 10으로 형변한후 산술연산을 시도한다.
+
+		console.log(`result = ${result}`);
+		
+		//2. 직접형변환 - 문자열 숫자를 연산가능한 숫자로 변환
+		const age = parseInt('40');
+		console.log(`age 변수의 타입은 ${typeof age}`);//number
+		
+		const year = Number('2023');
+		console.log(`year 변수의 타입은 ${typeof year}`);//number
+		
+		//NaN : Not a Number -> 잘못된 입력으로 계산할 수 없음을 나타내는 기호
+		//isNaN(변수) : NaN 인지 확인해 주는 함수 
+		let apple = parseInt('10apple');//10
+
+	    	//apple = Number('10apple');//NaN
+		
+		console.log(`apple = ${apple}`);
+	    console.log(`isNaN(apple) = ${isNaN(apple)}`);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

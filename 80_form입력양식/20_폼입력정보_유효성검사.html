@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form</title>
+<style>
+	dl{}
+	
+	dt{float: left; margin-right: 10px;}
+</style>
+</head>
+<body>
+	<h1>주문정보</h1>
+	
+	<form onsubmit="return validFn();">
+		<fieldset>
+			<legend>상품주문정보</legend>
+			
+			<dl>
+				<dt><label for="username">이름</label></dt>
+				<dd><input type="text" name="username" id="username" /></dd>
+				
+				<dt><label for="hp">연락처</label></dt>
+				<dd><input type="number" name="hp" id="hp" /></dd>
+				
+				<dt><label for="address">주소</label></dt>
+				<dd><input type="text" name="address" id="address" /></dd>
+			</dl>
+			
+			<p>
+				<button type="submit">주문</button>
+				<button type="button" onclick="history.back();">취소</button>
+			</p>
+		</fieldset>
+	</form>
+	
+	<script>
+		const validFn = function(){
+			
+			const $username = document.getElementById('username');
+			const $hp = document.getElementById('hp');
+			const $address = document.getElementById('address');
+			
+			//입력한 값에서 좌우 공백 제거
+			const username = $username.value.trim();
+			const hp = $hp.value.trim();
+			const address = $address.value.trim();
+			
+			if(username===null || username===''){
+				alert('이름을 입력해 주세요~!');
+				$username.focus();
+				return false;
+			}
+			
+			if(hp===null || hp===''){
+				alert('연락처를 입력해 주세요~!');
+				$hp.focus();
+				return false;
+			}
+			
+			if(address===null || address===''){
+				alert('주소를 입력해 주세요~!');
+				$address.focus();
+				return false;
+			}
+			
+			const $form = document.querySelector('form');
+			$form.action = 'login_ok.html';
+			$form.method = 'post';
+		};
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>표현식함수, 화살표함수</h1>
+	
+	<pre>
+		1. 기명함수(선언식함수)
+		
+			function sumFn(a,b){
+				console.log(a+b);
+			}
+		
+			우리가 위와같이 선언식 함수로 작성하면,
+			자바스크립트 해석기는 아래와 같은 '표현식함수'코드로 변환한다.
+			
+		2. 표현식함수는 변수에 익명함수를 할당하는 방식이다.
+			const sumFn = fuction(a,b){
+				console.log(a+b);
+			}
+			
+		3. 화살표함수 - 기존의 함수선언 방식을 간소화 함
+			const sumFn = (a,b)=>{
+				console.log(a+b);
+			}
+	</pre>
+	
+	<script>
+		//문제1 - 매개변수 a,b에 전달받은 두 값의 차를 출력하는 표현식함수 subFn을 선언하고, 
+		//인자로 300, 200을 전달하여 호출하시오.
+		
+		//함수변수에 저장되는 값은 0x0101 같은 Heap 메모리의 주소값이다.
+		const subFn = function(a,b){
+			console.log(`두 값의 차는 ${a-b}`);
+		};
+		
+		subFn(300, 200);
+		
+		const chaFn = subFn;//0x0101
+		chaFn(100, 200);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

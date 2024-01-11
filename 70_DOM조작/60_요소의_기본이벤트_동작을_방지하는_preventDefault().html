@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>이벤트 객체의 활용</h1>
+	
+	<a href="http://naver.com">네이버 바로가기</a>
+	
+	<script>
+		const $a = document.querySelector('a');
+
+		$a.addEventListener('click', function(evt){
+			
+			if(confirm('정말 네이버로 이동하시겠습니까?')){
+				alert('네이버로 이동합니다.');
+			}else{
+				evt.preventDefault();//해당요소의 기본이벤트가 작동하지 않도록 하는 코드
+				alert('네이버로 이동하지 않습니다.');
+			}
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

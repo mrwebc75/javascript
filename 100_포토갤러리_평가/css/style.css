@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+/* 공통요소 */
+.clearfix{*zoom:1;}
+.clearfix:after{display:block;clear:both;content:'';}
+
+#wrap{
+	width:937px;
+	margin:0 auto;
+}
+
+h1{height:100px;line-height:100px;text-align:center;}
+
+
+/* 슬라이드 */
+#slides{
+	border:1px solid #dedede;
+}
+
+#slides>p{
+	float:left;
+	width:647px;
+	background-image:url(../images/big1.jpg);
+	background-repeat:no-repeat;
+}
+
+#slides>p>a{
+	display:block;
+	height:325px;
+	text-indent:-9999px;
+}
+
+#slides>ul{
+	float:left;
+	width:288px;/*95*3 +3*/
+}
+
+#slides>ul>li{
+	float:left;
+	width:95px;
+	height:95px;
+	border:1px solid #dedede;
+	border-right:none;
+	border-top:0;
+}
+
+#slides>ul>li:nth-child(1){background-image:url(../images/th1.png);}
+#slides>ul>li:nth-child(2){background-image:url(../images/th2.png);}
+#slides>ul>li:nth-child(3){background-image:url(../images/th3.png);}
+#slides>ul>li:nth-child(4){background-image:url(../images/th4.png);}
+#slides>ul>li:nth-child(5){background-image:url(../images/th5.png);}
+#slides>ul>li:nth-child(6){background-image:url(../images/th6.png);}
+#slides>ul>li:nth-child(7){background-image:url(../images/th7.png);}
+#slides>ul>li:nth-child(8){background-image:url(../images/th8.png);}
+#slides>ul>li:nth-child(9){background-image:url(../images/th9.png);}
+
+#slides>ul>li:hover,
+#slides>ul>li.on{background-position:0 -95px;}
+
+#slides>ul>li>a{
+	display:block;
+	height:95px;
+	text-indent:-9999px;
+}
+
+
+/* 페이지네이션 */
+#slides>.pagination{
+	float:left;
+	position:relative;
+	width:287px;
+	height:37px;
+	border-left:1px solid #dedede;
+}
+
+#slides>.pagination>ol{
+	position:absolute;
+	left:50%;
+	top:50%;
+	width:calc(66px + 12px);
+	height:12px;
+	margin:-6px 0 0 -39px;
+}
+
+#slides>.pagination>ol>li{
+	float:left;
+	width:12px;
+	margin-right:6px;
+	background-color:#ccc;
+/*	transition:all 0.1s;*/
+	border-radius:6px;
+	
+}
+
+#slides>.pagination>ol>li:last-child{margin-right:0;}
+
+#slides>.pagination>ol>li.on{
+	width:24px;
+	background-color:#E51B13;
+}
+
+
+#slides>.pagination>ol>li>a{
+	display:block;
+	height:12px;
+	text-indent:-9999px;
+}
+
+#slides>.pagination>a{
+	position:absolute;
+	left: 50%;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border-width: 8px;
+	border-style: solid;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+
+#slides>.pagination>a.prev{	
+	margin: -8px 0 0 -15px;
+	border-color: transparent #ccc transparent transparent;
+}
+
+#slides>.pagination>a.prev:hover{
+	border-right-color: red;
+}
+
+#slides>.pagination>a.next{	
+	margin: -8px 0 0 15px;
+	border-color: transparent transparent transparent #ccc;
+}
+
+#slides>.pagination>a.next:hover{
+	border-left-color: red;
+}
+

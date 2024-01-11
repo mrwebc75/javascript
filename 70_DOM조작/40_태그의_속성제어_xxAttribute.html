@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트</title>
+<style>
+	body{text-align: center;}
+	p{
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    width: 450px;
+	    height: 200px;
+	    background-color: pink;
+	    margin: 0 auto 15px;
+	    color:white;
+	}
+	
+	#love{
+	    background-image: url(https://bit.ly/3XeSrH4);
+	    background-size: contain;
+	}
+	
+	.stroke{
+	    border: 5px solid #000;
+	    border-radius: 10px;
+	}
+	
+	button{
+	    padding: 10px 20px;
+	}
+</style>
+</head>
+<body>
+	<h1>태그의 속성 제어</h1>
+	
+	<p id="love" class="abc" title="JAVASCRIPT">즐거운 자바스크립트</p>
+	
+	<button>속성변환</button>
+	
+	<script>
+		const $p = document.querySelector('h1+p');
+		const $btn = document.querySelector('button');
+		
+		$btn.addEventListener('click', function(){
+			
+			//p태그의 글자를 파란색으로 변환 -> $DOM.setAttribute('속성명', '속성값');
+			//인라인방식으로 코드가 추가됨
+			$p.setAttribute('style','color:blue;');
+			
+			//.stroke 클래스를 추가
+			$p.setAttribute('class', 'stroke');
+			
+			
+			//특정속성값 가져오기
+			console.log($p.getAttribute('title'));
+						
+			//특정속성을 가지고 있는지 확인 -> true/false
+			if($p.hasAttribute('id')){
+				alert('p태그는 id속성을 가지고 있습니다.');
+				
+				//태그의 속성 삭제
+				$p.removeAttribute('id');
+			}
+			
+			
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

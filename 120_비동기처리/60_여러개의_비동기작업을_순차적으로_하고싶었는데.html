@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript</title>
+</head>
+<body>
+	<h1>여러개의 AJAX 비동기작업을 순차적으로 하고 싶었는데</h1>
+	
+	<script>
+		//비동기로 데이터를 요청하는 주소
+		const requestURL_1 = `https://api.openweathermap.org/data/2.5/weather?lat=${`37.574187`}&lon=${`126.976882`}&appid=${`f484e2a5d894868fc44107169564f8f6`}&units=metric`;
+		const requestURL_2 = `http://mvcweb.dothome.co.kr/40-simple-response-get.php?id=둘리`;
+		const requestURL_3 = `http://mvcweb.dothome.co.kr/get-response.php?ans=100`;
+		
+		function ajaxReqFn(url){
+			//비동기작업
+			xhr = new XMLHttpRequest();
+			
+			//서버에서 응답이 왔을 때 실행할 함수 등록
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState === 4){//비동기 요청에 대한 처리가 끝났다면(성공 or 실패)
+					
+					if(xhr.status === 200){//성공했다면
+						//console.log(xhr.response);
+					
+					//데이터 역직렬화(객체화)
+					const res = JSON.parse(xhr.response);
+					
+					//console.log('res =', res);
+					
+					return res;
+					
+					}else{//실패했다면
+						alert('문제가 발생했습니다.');
+					}
+				}
+			};
+			
+			xhr.open('get',`${url}`);
+			
+			xhr.send();
+		}
+		
+		/*
+			콘솔작업은 동기이고, ajaxReqFn()는 비동기이기 때문에 
+			값을 가져오기 전에 console.log()가 먼저 실행되므로 undefined가 찍힌다.
+		*/
+		console.log(ajaxReqFn(requestURL_1));
+		//console.log(ajaxReqFn(requestURL_2));
+		//console.log(ajaxReqFn(requestURL_3));
+	</script>
+</body>
+</html>

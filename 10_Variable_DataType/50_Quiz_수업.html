@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+  <h1>입력받은 숫자까지의 합 구하기</h1>
+  
+  <pre>
+   문제) prompt() 함수를 이용하여 5000 이하의 숫자를 입력받아
+      1부터 입력받은 숫자까지의 합을 출력하시오.
+      
+      조건1 - 5000을 초과하는 숫자를 입력한 경우 정상적으로 입력할 때 까지 다시 입력받을 수 있도록 하시오.
+      
+      조건2 - 1부터 입력받은 숫자까지의 합을 구할 때 for 반복문을 사용하시오.
+  </pre>
+
+  <hr>
+  
+  <script>
+  	let inputNum = parseInt(prompt('5000 이하의 숫자 한개를 입력하세요'));
+  	
+
+  	while(true){
+  		if(isNaN(inputNum)){//아무것도 입력하지 않고 엔터한 경우
+  			inputNum = parseInt(prompt('아무 내용도 입력하지 않으셨네요\n5000 이하의 숫자 한개를 입력하세요'));
+  		
+  		}else if(inputNum>5000){
+  			inputNum = parseInt(prompt('5000 이하의 숫자로 입력하세요'));
+  			
+  		}else{
+  			break;
+  		}
+  	}
+  	
+  	//console.log(`inputNum = ${inputNum}`);
+  	//console.log(`typeof inputNum = ${typeof inputNum}`);
+  	
+  	let sum = 0;
+  	
+  	for(let i=1;i<=inputNum;i++){
+  		sum += i;
+  	}
+  	
+  	document.write(`1부터 ${inputNum}까지 모두 더한 값 = ${sum}`);
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<link rel="stylesheet" href="./css/reset.css" />
+</head>
+<body>
+	<h1>Object() 생성자함수를 활용한 성적처리</h1>
+	
+	<hr />
+	
+	<script>
+		const sungjuk = new Object();//{} 빈객체
+		
+		sungjuk.kor = 90;
+		sungjuk.eng = 95;
+		sungjuk.math = 92;
+		
+		sungjuk.total = function(){
+			return this.kor+this.eng+this.math;
+		};
+		
+		sungjuk.avg = function(){
+			return this.total()/3;
+		};
+		
+		sungjuk.report = function(){
+			document.write(`총점:${this.total()}, 평균:${this.avg()}`);
+		};
+		
+		//출력
+		sungjuk.report();
+		
+	</script>
+</body>
+</html>

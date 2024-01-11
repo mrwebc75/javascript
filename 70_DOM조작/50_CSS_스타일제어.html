@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트</title>
+</head>
+<body>
+	<h1>CSS 스타일제어</h1>
+
+	<div class="ex1">
+		<h2>자바스크립트 프로그래밍</h2>
+		<button>클릭~!</button>
+	</div>
+	
+	<script>
+	/*
+		문제1. 첫번째 버튼을 눌렀을 때 h2구문의 CSS 효과를 적용
+			1) 글자색을 파란색으로 ....
+			2) 글자크기를 16px로 ....
+			3) 굵기를 보통 400으로 ....   
+	*/
+	const $btnFrst = document.querySelector('.ex1>button');
+			
+	$btnFrst.addEventListener('click', function(){
+    	const $h2 = document.querySelector('.ex1>h2');
+		
+		$h2.style.color = 'blue';
+		$h2.style.fontSize = '16px';
+		$h2.style.fontWeight = 400;
+	});		
+	
+	</script>
+
+	<hr />
+
+	<div class="ex2">
+		<h2>JavaScript Programming</h2>
+		<button>Click~!</button>
+	</div>
+	
+	<script>
+	/*
+		문제2. 두번째 버튼을 눌렀을 때 h2구문의 CSS 효과를 적용
+			1) 글자색을 빨간색으로 ....
+			2) 글자에 밑줄을 ....
+			3) 배경색을 노란색으로 ....        
+	*/	
+	const $btnSec = document.querySelector('.ex2>button');
+
+    
+	$btnSec.addEventListener('click', function () {
+    	const $h2 = document.querySelector('.ex2>h2');
+
+		$h2.style.color = 'red';
+		$h2.style.textDecoration = 'underline';
+		$h2.style.backgroundColor = 'yellow';
+	});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

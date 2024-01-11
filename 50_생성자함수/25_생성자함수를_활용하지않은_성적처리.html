@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<link rel="stylesheet" href="./css/reset.css" />
+</head>
+<body>
+	<h1>생성자함수를 활용하지 않은 성적처리</h1>
+	
+	<hr />
+	
+	<script>
+		const kor = 90;
+		const eng = 95;
+		const math = 92;
+		
+		//총점함수
+		const totalFn = (kor,eng,math)=>{
+			return kor+eng+math;
+		};
+		
+		//평균함수
+		const avgFn = (kor,eng,math)=>{			
+			return totalFn(kor,eng,math)/3;
+		};
+		
+		//출력함수
+		const reportFn = (kor,eng,math)=>{
+			document.write(`총점:${totalFn(kor,eng,math)}, 평균:${avgFn(kor,eng,math)}`);
+		};
+		
+		reportFn(90,95,92);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

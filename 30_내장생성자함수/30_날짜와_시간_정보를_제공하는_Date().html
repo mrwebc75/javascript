@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>날짜, 시간정보 추출</h1>
+	
+	<hr />
+	
+	<script>
+		//현재 시점의 날짜, 시간정보
+		const now = new Date();
+		
+		console.log(`now = ${now}`);
+		
+		//년월일
+		const year = now.getFullYear();//2023
+		const month = now.getMonth();//0~11
+		const date = now.getDate();//28
+		
+		document.write(`${year}년 ${month+1}월 ${date}일 <br />`);
+		
+		//시분초
+		const hours = now.getHours();//10
+		const minutes = now.getMinutes();//40
+		const seconds = now.getSeconds();//55
+		
+		document.write(`${hours}시 ${minutes}분 ${seconds}초<br />`);
+		
+		//요일
+		const day = now.getDay();//0~6
+		
+		let dayName = '';
+		
+		//방법1 - 배열이용
+		const arrDay = ['일','월','화','수','목','금','토'];
+		dayName = arrDay[day];
+		
+		//방법2 - switch
+		switch(day){
+			case 0: dayName = '일'; break;
+			case 1: dayName = '월'; break;
+			case 2: dayName = '화'; break;
+			case 3: dayName = '수'; break;
+			case 4: dayName = '목'; break;
+			case 5: dayName = '금'; break;
+			case 6: dayName = '토'; break;
+		}
+		
+		document.write(`오늘은 ${dayName}요일 입니다.<br />`);
+		
+		//1970-01-01 00:00:00 부터 지금까지 경과한 시간 출력 -> 밀리세컨즈 단위
+		document.write(`<h2>${now.getTime()}</h2>`);
+		document.write(`<h2>${now.valueOf()}</h2>`);
+		
+		/*
+			1s = 1000ms
+			1m = 1000ms * 60
+			1h = 1000ms * 60 * 60
+			1day = 1000ms * 60 * 60 * 24
+		*/
+	</script>
+</body>
+</html>

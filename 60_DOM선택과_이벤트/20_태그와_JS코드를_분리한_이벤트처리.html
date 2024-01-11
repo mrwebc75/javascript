@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+    <style>
+        body{text-align: center;}
+        button{padding: 10px 15px;}
+    </style>
+</head>
+<body>
+    <h1>태그와 JS코드를 분리한 이벤트처리</h1>
+
+    <pre>
+        1. 같은의미, 다른표현
+            태그 = 선택자 = 요소 = Element = DOM = Node
+
+        2. 자바스크립트 관점에서 태그(DOM)의 역할
+
+            JS가 HTML 소스코드에 접근하여
+            내용이나 속성값, 또는 적용된 CSS 코드를
+            조작하기 위한 통로(인터페이스) 역할
+
+        3. 실무에서 가장 많이 사용되는 이벤트구문 작성방식
+            DOM선택.addEventListener('이벤트명', 이벤트핸들러);
+            DOM선택.addEventListener('이벤트명', 익명함수);
+            DOM선택.addEventListener('이벤트명', function(){});
+
+
+        4. document 객체 -> html 태그에 대응, 문서전체 가리키는 특별한 객체
+            -> DOM을 선택할 수 있는 다양한 메소드를 제공한다.
+    </pre>
+
+    <button>클릭~!</button>
+
+    <script>
+        //msgFn 함수를 선언하시오.
+        function msgFn(){
+            alert('자바스크립트 수업은 너무 즐겁다~!');
+        }
+
+        //button을 click 했을 때 msgFn 함수가 호출될 수 있도록 코드를 작성하시오
+        document.querySelector('button').addEventListener('click', function(){
+            msgFn();
+        });
+    </script>
+</body>
+</html>

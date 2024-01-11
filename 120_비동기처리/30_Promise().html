@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript</title>
+</head>
+<body>
+	<h1>순차적인 비동기처리 실행순서에 초점을 맞춘 Promise()</h1>
+	
+	<pre>
+		Promise() 생성자함수를 이용한 비동기처리 문법(콜백지옥 탈출)
+		
+		1. workFn() 함수는 Promise() 객체를 생성하여 리턴하고,
+		2. then() 에서는 resolve()를 통해 보낸 결과를 받는다.
+		
+		3. 프라미스 문법에서는 두개의 콜백함수가 필요하다.
+			첫번째는 Promise 객체 생성시 전달하는 콜백함수 (resolve, reject) => {}
+			두번째는 then()에서 받는 콜백함수 (time) => {}
+			
+		4. resolve에는 비동기작업 성공시 호출하는 함수의 주소값이 전달되고,
+		   reject에는 에러가 발생했을 때 호출하는 함수의 주소값이 전달된다.
+	</pre>
+	
+	<hr />
+	
+	<script>
+		//Promise 객체를 리턴하는 함수
+		function workFn(sec){
+			
+			let myPromise = new Promise((resolve, reject) => {
+
+			  //우리가 걸 예약(서버에 데이터를 보내달라고 요청)의 구체적 내용을 여기에 작성(비동기처리)
+			  //비동기적으로 받아온 데이터를 resolve()를 이용해서 호출한 쪽으로 전달 => return 하고 비슷한 역할
+			  //보통 어떤 서버에서 데이터를 수신하는데 약간의 시간이 필요하다.
+			  //이런 상황을 가정해서 setTimeout()을 이용해서 아래에 표현하겠다.
+			  setTimeout(function () {
+			    resolve(new Date().toLocaleString()); // 와! 문제 없음!
+			  }, sec*1000);			  
+			  
+			});
+			
+			return myPromise;
+		}//end of workFn()
+		
+		workFn(1).then((time) => {
+
+		  document.write(`1. ${time}<br />`);		  
+		  return workFn(1);
+		  
+		}).then((time)=>{
+
+		  document.write(`2. ${time}<br />`);
+		  return workFn(1);
+		  
+		}).then((time)=>{
+
+		  document.write(`2. ${time}<br />`);
+		  return workFn(1);
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

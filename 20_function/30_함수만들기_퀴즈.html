@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>큰수에서 작은수를 빼는 함수</h1>
+
+	<script>
+		/*
+			두수의 차를 구하는 방법은 두가지가 있습니다.
+				1. 큰수에서 작은수를 빼는 방법
+				2. 절대값을 이용하는 방법
+
+			diffFn 함수 알고리즘
+				1. 매개변수 a, b에 두 값을 전달 받는다.
+				2. 만약 a>b 이면 a-b의 결과를 diff에 저장한다.
+				3. 그렇지 않으면 b-a의 결과를 diff에 저장한다.
+				4. 변수 diff에 저장된 결과값을 화면에 출력한다.
+		*/
+	</script>
+	<script>
+		function diffFn(a, b) {
+			let diff = 0;
+
+			if (a > b) {
+				diff = a - b;
+			} else {
+				diff = b - a;
+			}
+
+			document.write(`diff = ${diff}<br>`);
+		}
+
+		diffFn(5, 3);
+		diffFn(3, 5);
+	</script>	
+</body>
+</html>

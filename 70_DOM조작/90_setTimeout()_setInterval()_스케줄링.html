@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<div id="wrap">
+		<h1>setTimeout(), setInterval()을 이용한 스케줄링</h1>
+		
+		<pre>
+			1. let key = setTimeout(콜백함수, 시간);
+				- 지정한 시간이 경과한 후에 딱 한번만 호출해 달라고 예약
+				- 예약을 해지할 수 있는 키값을 리턴한다.
+				- clearTimeout(예약키값)을 통해서 예약을 해지한다.
+				
+			2. let key = setInterval(콜백함수, 시간);
+				- 지정한 시간 간격으로 반복적으로 함수를 실행해 달라고 예약
+				- 예약을 해지할 수 있는 키값을 리턴한다.
+				- clearInterval(예약키값)을 통해서 예약을 해지한다.
+		</pre>
+		
+		<hr />
+		
+		<style>
+			#wrap{
+				width:85%;
+				margin:0 auto;
+				padding-bottom:100px;
+				text-align:center;
+			}
+			
+			.frame{
+				display: flex;
+				justify-content: center;
+				align-items : center;
+				width: 500px;
+				height: 500px;
+				margin: 0 auto;
+			}
+			
+			button{
+				margin-top: 20px;
+				padding: 20px;
+				font-size: 32px;
+			}
+		</style>
+		
+		<section>
+			<h2>setTimeout() 시한폭탄</h2>
+			<h3>20초후 폭탄이 터진다. 과연 당신의 선택은?</h3>
+			<p class="frame">
+				<img src="https://bit.ly/36n8RaZ" alt="#" class="bomb" />
+			</p>
+			<h4>폭탄이 터지기까지 남은 시간 : <span class="count">20</span>초</h4>
+			<button class="red">붉은전선 자르기</button>
+			<button class="yellow">노란전선 자르기</button>
+			<button class="blue">파란전선 자르기</button>
+		</section>
+	</div>
+	
+	<script>
+		const $bomb = document.querySelector('.bomb');
+	
+		const bombKey = setTimeout(function(){
+			$bomb.setAttribute('src', 'https://bit.ly/3gRmoJX');
+			alert('뿜~!! 당신은 운명하셨습니다. You Die~!!');
+		},20000);//20초
+		
+		clearTimeout(bombKey);
+		
+	
+		//카운트다운 표시
+		const $count = document.querySelector('.count');
+		let totCount = 20;
+		let countTime = 1;
+		
+		const intervalKey = setInterval(function(){
+			totCount -= countTime;
+			$count.textContent = totCount;
+			
+			if(totCount < 1){
+				$bomb.setAttribute('src', 'https://bit.ly/3gRmoJX');
+				alert('뿜~!! 당신은 운명하셨습니다. You Die~!!');
+				clearInterval(intervalKey);
+			}
+		},1000);
+		
+		//버튼선택 결과
+		const $btns = document.querySelectorAll('button');
+		
+		//붉은버튼
+		$btns[0].addEventListener('click', function(){
+			clearInterval(intervalKey);
+			alert('시한폭탄 작동이 멈췄습니다~!');
+		});
+		
+		//노란버튼
+		$btns[1].addEventListener('click', function(){
+			alert('큰일 났습니다. 시간이 더빨리 흐르고 있습니다.');
+			countTime = 3;
+		});
+		
+		//파란버튼
+		$btns[2].addEventListener('click', function(){
+			alert('긴장한 탓에 실수로 파란전선이 잘렸습니다.');
+			
+			$bomb.setAttribute('src', 'https://bit.ly/3gRmoJX');
+			alert('뿜~!! 당신은 운명하셨습니다. You Die~!!');
+			clearInterval(intervalKey);			
+		});
+	</script>
+</body>
+</html>

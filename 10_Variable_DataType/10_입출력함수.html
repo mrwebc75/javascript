@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<script>
+		/*
+			JS 소스의 결과를 확인하거나 사용자에게 값을 입력받을때 사용하는 함수
+			
+			1. alert(); 	사용자에게 메세지를 보여주는 함수
+			
+			2. confirm();	확인,취소 버튼을 가지고 있는 확인창 로딩
+			
+			3. prompt();	사용자로부터 문자열 데이터를 입력받는 창 로딩
+			
+			4. document.write();	body 태그 안에 입력내용을 출력
+		*/
+	</script>
+</head>
+<body>
+	<h1>브라우저에서 사용하는 여러가지 입출력함수</h1>
+	<script>		
+		if(false){
+			//JS에서 문자열은 무조건 홑따옴표/쌍따옴표/빽틱으로 감싸야 한다.
+			alert('안녕하세요, 홑따옴표 사용');
+			alert("안녕하세요, 쌍따옴표 사용");
+			alert(`안녕하세요, 빽틱사용`);
+		}
+		
+		if(false){
+			//confirm()은 true, false 중 하나의 값을 반환한다.
+			const answer = confirm('자바스크립트 신통방통 한가요?');
+			document.write('answer = '+answer);
+			document.write(`<br />answer = ${answer}`);
+		}
+		
+		if(true){
+			//사용자가 입력한 값을 무조건 문자열로 리턴
+			let name = prompt('이름을 입력하세요~!');
+			document.write('<br />');
+			document.write(`name = ${name}`);
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트</title>
+<style>
+	body{text-align: center;}
+	#light{
+		width: 240px;
+		height: 220px;
+		margin: 50px auto;
+		padding-bottom: 40px;
+		background-image: url(https://www.w3schools.com/js/pic_bulboff.gif);
+		background-position: center 10px;
+		background-repeat: no-repeat;
+		border: 1px solid black;
+	}
+	
+	#light.on{
+		background-image: url(https://www.w3schools.com/js/pic_bulbon.gif);
+	}
+	
+	#light.shadow{
+		box-shadow: 0 0 100px 20px rgba(0,0,0,0.5);
+	}
+	
+	button{
+		margin-top: 220px;
+	}
+</style>
+
+<script>
+	//DOMTree 구성이 완료된 시점에 발생하는 이벤트
+	window.addEventListener('DOMContentLoaded', function(){
+		const $light = document.getElementById('light');
+		
+		const $btnAdd = document.querySelector('.add');
+		const $btnRemove = document.querySelector('.remove');
+		const $btnToggle = document.querySelector('.toggle');
+		const $btnReplace = document.querySelector('.replace');
+		
+		//켜기
+		$btnAdd.addEventListener('click', function(){
+			$light.classList.add('on');//클래스 추가
+		});
+		
+		//끄기
+		$btnRemove.addEventListener('click', function(){
+			$light.classList.remove('on');
+		});
+		
+		//토글
+		$btnToggle.addEventListener('click', function(){
+			//사용법1 - add() + remove()
+			//$light.classList.toggle('on');
+			
+			//사용법2 - 강제로 add, remove
+			//$light.classList.toggle('on', true);//강제로 on 추가
+			//$light.classList.toggle('on', false);//강제로 on 삭제
+			
+			//사용법3 - 특정 조건을 만족할때만 toggle 한다.
+			const num = parseInt(prompt('1~10 사이의 숫자를 입력하세요'));
+			$light.classList.toggle('on', num>5)
+		});
+		
+		//교체
+		$btnReplace.addEventListener('click', function(){
+			$light.classList.replace('on','shadow');//무엇을 어떻게
+		});
+		
+	});
+</script>
+
+</head>
+<body>
+    <h1>동적으로 class 추가, 삭제</h1>
+
+    <p id="light" class="">
+      <button class="add">켜기</button>
+      <button class="remove">끄기</button>
+      <button class="toggle">켜기/끄기</button>
+      <button class="replace">교체</button>
+    </p>
+</body>
+</html>

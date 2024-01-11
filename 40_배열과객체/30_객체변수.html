@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>객체변수</h1>
+	
+	<pre>
+		1. 객체란? 하나 이상의 기본 데이터타입 값들을 하나로 묶어 놓은 것
+		
+		2. 객체의 형태
+			{property : value}
+			{key : value}
+			
+		3. 객체변수에 저장된 데이터 출력
+			변수명.프로퍼티명
+			변수명['프로퍼티명']
+			
+		4. 리터럴(Literal) - 사람이 이해할 수 있는 문자나 약속된 기호를 사용해서 값을 생성하는 표기법
+	</pre>
+	
+	<hr />
+	
+	<script>
+		//저장하고 싶은 데이터 - 'korea', '손흥민', 31
+		const nation = 'korea';
+		const name= '손흥민';
+		const age = 30;
+		
+		//리터럴방식으로 객체변수 선언
+		//객체변수에 저장되는 값은 0x0101 같은 Heap 메모리의 주소값이다.
+		const son = {
+			nation : 'korea',
+			name : '손흥민',
+			age : 31
+		};
+		
+		
+		const sunny = son;//0x0101
+		sunny.nation = '대한민국';
+		console.log('sunny =', sunny);
+		
+		//보통 .(점) 찍고 사용하는  표기법 -> ~의 로 해석
+		document.write(`${son.nation}의 국가대표 축구선수 ${son.name}은 ${son.age}세이다.`);
+		
+		document.write('<br />');
+		
+		console.log(son['nation']);
+		
+		
+		//대괄호 표기법으로 출력
+		document.write(`${son['nation']}의 국가대표 축구선수 ${son['name']}은 ${son['age']}세이다.`);
+		
+		
+		//문제) 사용중인 컴퓨터를 대상으로 객체변수 computer 를 선언하시오.
+		const computer = {
+			brand : 'LG',
+			color : 'Black',
+			price : 200000
+		};
+		
+		//동적으로 프로퍼티 추가
+		computer.size = "big";
+		
+		console.log('computer =', computer);
+		
+	</script>
+</body>
+</html>

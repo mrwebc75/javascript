@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<title>자바스크립트</title>
+	</head>
+	<body>
+		<h1>DOM-Tree를 타고 Node를 선택하는 방법</h1>
+
+        <pre>
+            1. body태그 - document.body
+
+            2. 직계부모 - $me.parentElement
+
+            3. 이전형제 - $me.previousElementSibling
+
+            4. 다음형제 - $me.nextElementSibling
+
+            5. 직계자식들 - $me.children
+
+            6. n번째자식 - $me.children[인덱스]
+
+            7. 첫째자식 - $me.firstElementChild
+
+            8. 막내자식 - $me.lastElementChild
+
+            9. 직계자식의 개수 - $me.children.length
+                                $me.childElementCount
+        </pre>
+
+		<dl>
+			<dt><strong>토속방언</strong> 버전</dt>
+
+			<dd class="nation greeting">한국 - 식사하셧습니까? 하모~</dd>
+			<dd class="nation greeting">중국 - 츠팔러마? 츠팔러</dd>
+			<dd class="nation greeting">
+				<strong>부시족</strong> 리얼싸운드 -<strong>일렌트로캉막따따라바오리도? 따따라!</strong>
+			</dd>
+		</dl>
+
+        <script>
+            const $dl = document.querySelector('dl');
+
+            //문제 - $dl의 직계부모를 선택하시오
+            document.body;
+            $dl.parentElement;
+
+            //문제 - $dl의 이전요소를 선택하시오
+            $dl.previousElementSibling;
+
+            //문제 - $dl의 다음요소를 선택하시오
+            $dl.nextElementSibling;
+            
+            //문제 - $dl의 모든자식요소를 선택하시오
+            $dl.children;
+
+            //문제 - $dl의 첫번째 자식요소를 선택하시오
+            $dl.firstElementChild;
+            $dl.children[0];
+
+            //문제 - $dl의 마지막 자식요소를 선택하시오
+            $dl.lastElementChild;
+            $dl.children[$dl.children.length-1];
+
+            //문제 - $dl의 두번째 자식요소를 선택하시오
+            $dl.children[1];
+
+            //문제 - $dl의 직계자식의 개수를 출력하시오
+            $dl.children.length;
+            $dl.childElementCount;
+        </script>	
+	</body>
+</html>

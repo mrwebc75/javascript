@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript</title>
+</head>
+<body>
+	<h1>async, await</h1>
+	
+	<pre>
+		1. await을 붙이면 비동기처리가 완료될때 까지 기다렸다가 다음 코드가 실행된다.
+		
+		2. await 키워드를 사용하려면 함수명 앞에 async 키워드를 붙여야 한다.
+		
+		3. Promise()의 then()을 통해 작업해 왔던 것을
+		   동기코드처럼 작성할 수 있다는 점에서 편리함을 제공한다. 
+		   
+		4. await의 대상이 되는 비동기 코드는
+			Promise 객체를 반환하는 함수 이어야 한다.
+			fetch(), axios() API도 해당된다.
+			
+		5. ES8 버전에서 추가로 도입
+	</pre>
+	
+	<script>
+		//비동기로 데이터를 요청하는 주소
+		const requestURL_1 = `https://api.openweathermap.org/data/2.5/weather?lat=${`37.574187`}&lon=${`126.976882`}&appid=${`f484e2a5d894868fc44107169564f8f6`}&units=metric`;
+		const requestURL_2 = `http://mvcweb.dothome.co.kr/40-simple-response-get.php?id=둘리`;
+		const requestURL_3 = `http://mvcweb.dothome.co.kr/get-response.php?ans=100`;
+		
+		
+		function ajaxReqFn(url){
+			
+			const myPromise = new Promise((resolve,reject)=>{
+				
+				//비동기작업
+				xhr = new XMLHttpRequest();
+				
+				//서버에서 응답이 왔을 때 실행할 함수 등록
+				xhr.onreadystatechange = function(){
+					if (xhr.readyState === 4){//비동기 요청에 대한 처리가 끝났다면(성공 or 실패)
+						
+						if(xhr.status === 200){//성공했다면
+						
+							//데이터 역직렬화(객체화)
+							const res = JSON.parse(xhr.response);
+	
+							resolve(res);
+							
+						}else{//실패했다면
+							alert('문제가 발생했습니다.');
+						}
+					}
+				};
+				
+				xhr.open('get',`${url}`);
+				
+				xhr.send();				
+				
+			});
+			
+			return myPromise;
+			
+		}
+		
+		
+		//수신한 데이터를 처리하는 코드
+		//async, await을 사용하여 코드의 가독성을 개선
+		(async function AnswerFn(){
+			let result = await ajaxReqFn(requestURL_1);
+			console.log('1번째 응답정보 =', result);
+			
+			result = await ajaxReqFn(requestURL_2);
+			console.log('2번째 응답정보 =', result);
+			
+			result = await ajaxReqFn(requestURL_3);
+			console.log('3번째 응답정보 =', result);
+			
+		})();
+		
+		
+		
+		
+	</script>
+</body>
+</html>

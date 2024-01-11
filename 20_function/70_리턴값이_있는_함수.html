@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<script>
+	/*
+		1. return;	- 함수의 종료를 의미하며, 그 이후에 나오는 명령문은 실행X
+	
+		2. return 반환값; - 함수를 호출한 곳으로 '반환값'을 돌려보내면서 종료
+	*/
+	</script>
+</head>
+<body>
+	<h1>리턴값이 있는 함수</h1>
+	
+	<script>
+		//문제1 - 두개의 값을 전달받아 곱을 리턴하는 표현식함수 kobFn(a,b)를 선언하세요.
+		const kobFn = function(a,b){
+			return a*b;
+			alert('ㅎㅎㅎ');
+		};
+		
+		const result = kobFn(7,100);
+		document.write(`result = ${result}`);
+		
+		
+		//문제2 - 두 수를 매개변수 one, two에 전달받아 그 합을 return 하는 화살표함수 habFn을 선언하시오. 
+		//리턴받은 값을 sum 변수에 할당후 화면에 "sum = 100"과 같은 형식으로 출력하시오.
+		
+		const habFn = (one, two)=>{
+			return one+two;
+		};
+		
+		const sum = habFn(70, 30);
+		document.write('<br />');
+		document.write(`sum = ${sum}`);
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript</title>
+</head>
+<body>
+	<h1>DOM 이벤트와 .forEach()</h1>
+	
+	<pre>
+		1. 배열 각각의 원소에 공통적인 작업을 하고 싶을때 유용
+		
+		2. 사용법
+				(유사)배열.forEach(function(item, idx){});
+	</pre>
+	
+	<hr />
+	
+	<p class="box">?</p>	
+	<button type="button">내용출력</button>
+	
+	<script>
+		const arrData = ['둘리', '또치', '도우너', '마이콜'];
+		
+		//회원번호1 : 둘리<br>회원번호2 : 또치 ...
+		let result = '';
+		
+		const $box = document.querySelector('.box');
+		const $btn = document.querySelector('button');
+		
+		$btn.addEventListener('click', function(){
+			
+			//방법1 - for()문 
+			//for(let i=0;i<arrData.length;i++){
+				//result += `회원번호${i} : ${arrData[i]}<br>`;
+			//}
+			
+			
+			//방법2 - forEach()
+			arrData.forEach(function(item, idx){
+				result += `회원번호${idx} : ${item}<br>`;
+			});
+			
+			//$box.textContent = result;
+			$box.innerHTML = result;
+			
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

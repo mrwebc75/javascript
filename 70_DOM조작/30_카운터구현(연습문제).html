@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+        }
+    
+        h1 {
+          line-height: 100px;
+          text-align: center;
+        }
+    
+        .cbox {
+          width: 150px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid #000;
+        }
+    
+        .cbox>p {
+          margin-bottom: 50px;
+          text-align: center;
+        }
+    
+        .count {
+          font-weight: 800;
+          font-size: 30px;
+        }
+    
+        button {
+          width: 40px;
+          height: 30px;
+        }
+    
+        button:first-child {
+          margin-right: 10px;
+        }
+      </style>      
+</head>
+<body>
+    <h1>1씩 증가 또는 감소하는 카운터 프로그램</h1>
+
+    <div class="cbox">
+      <p class="count">7</p>
+      <p>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+      </p>
+    </div>
+
+	<script>
+	    /*
+	    	사용자는 + 버튼을 누른다. -> 이벤트구문
+		
+		    그러면 현재값을 가져와서 1을 더한다.
+		        p.count 돔을 선택=>$count
+		        $count.textContent 라고 하면 문자열 "7"로 가져온다.
+		        따라서 1을 더하기 전에 연산가능한 숫자로 바꿔야 한다.
+		
+		    그 결과값을 출력한다.
+		*/
+		
+		const $btnPlus = document.getElementById('plus');
+		const $btnMinus = document.getElementById('minus');
+		const $count = document.querySelector('.count');
+		        
+		$btnMinus.addEventListener('click', function(){
+			let num = parseInt($count.textContent);
+			num--;
+			
+			if(num<0) num = 0;
+			
+			console.log(`num = ${num}`);
+			
+			$count.textContent = num;
+		});	
+		
+		$btnPlus.addEventListener('click', function(){
+			let num = parseInt($count.textContent);
+			num++;
+			
+			if(num>10) num = 10;
+			
+			console.log(`num = ${num}`);
+			
+			$count.textContent = num;
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

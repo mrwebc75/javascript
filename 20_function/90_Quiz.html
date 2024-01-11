@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>몫과 나머지 구하기</h1>
+
+	<pre>
+		두개의 수 a, b 를 입력받아 
+		a를 b로 나눈 몫과 나머지를 출력하는 프로그램을 작성하시오.
+		(단, 각 수는 1이상 10000 이하의 정수이다.)
+
+		출력형식
+			몫:33, 나머지:1
+	</pre>
+
+	<hr />
+
+	<script>
+		let a = parseInt(prompt('첫번째 수를 입력하세요~!'));
+		let b = parseInt(prompt('두번째 수를 입력하세요~!'));
+		
+		if(a<1 || a>10000){
+			a = parseInt(prompt('첫번째 수가 범위에 있지 않습니다. 다시 입력하세요~!'));
+		}
+		
+		if(b<1 || b>10000){
+			b = parseInt(prompt('두번째 수가 범위에 있지 않습니다. 다시 입력하세요~!'));
+		}
+		
+		const share = Math.floor(a/b);//소수점 버림
+		const rest = a%b;
+		
+		document.write(`몫:${share}, 나머지:${rest}`);
+	</script>
+</body>
+</html>

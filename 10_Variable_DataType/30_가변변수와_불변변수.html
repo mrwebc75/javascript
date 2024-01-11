@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<script>
+		/*
+			변수명을 정하는 좋은 습관
+
+			1. 영문소문자로 띄어쓰기 없이
+			2. 의미있는 짧은 영단어의 조합
+			
+			3. 두단어 이상일 경우 
+					1) 스네이크 표기법 : my_home
+					2) 낙타표기법 : myHome 
+					3) 파스칼표기법 : MyHome
+			
+			4. 숫자로 시작하지 않는다.
+		*/
+	</script>
+</head>
+<body>
+	<h1>가변변수 let, 불변변수 const</h1>
+	
+	<script>
+		//1. 중간에 값을 변경할 수 있는 가변변수는 let 키워드 사용
+		let sum;//변수를 선언만하고 값을 할당하지 않으면 자동으로 undefined 값을 넣어준다.
+		sum = 10;//값할당(재할당)
+		
+		console.log(`sum = ${sum}`);
+		
+		
+		let username = '둘리';//변수의 선언과 할당을 동시에 함
+		username = '또치';
+		
+		console.log(`username = ${username}`);
+		
+		
+		//2. 중간에 값을 변경할 수 없는 불변변수는 const 키워드 사용
+		
+		//따라서 무조건 선언과 동시에 값을 할당해야 한다.
+		const number = 10;
+		//number = 20; 재할당을 시도하면 에러발생
+		
+		console.log(`number = ${number}`);
+		
+		
+		//문제 - 위의 number 변수에 100을 더한후 result 변수에 할당후 콘솔창에 보간법으로 출력하시오
+		const result = number + 100;
+		console.log(`result = ${result}`);
+		
+		
+		//문제 - 사용자로부터 나이를 age 변수에 입력받아 화면에 출력하시오.
+		const age = prompt('나이를 입력하세요');
+		document.write(`당신의 나이는 ${age}세 이군요~!`);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

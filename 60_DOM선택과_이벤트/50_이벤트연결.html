@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<title>자바스크립트</title>
+		<style>
+			body {
+				text-align: center;
+			}
+			p.frame {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 200px;
+				height: 160px;
+				margin: 0 auto;
+				background-image: url(https://shorturl.at/jmoAY);
+				background-size: cover;
+				border: 1px solid #eee;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>이벤트구문 작성연습</h1>
+
+		<p><button>클릭해 보세요~!</button></p>
+
+		<h2>공부 시간을 확보하자~!</h2>
+
+		<p class="frame">강아지 삼둥이</p>
+
+		<h2 id="tit">자바스크립트</h2>
+
+
+		<script>
+			//연습예제) button에 대한 click 이벤트 구문을 작성하시오.
+			// 클릭하면 "버튼 클릭 성공~!" 메세지 출력
+            const $button = document.querySelector('button');
+            $button.addEventListener('click', function(){
+                alert('버튼 클릭 성공~!');
+            });
+
+			// 문1) h2에 대한 click 이벤트 구문을 작성하시오.
+			// 클릭하면 "열공~!" 메세지 출력
+            const $h2 = document.querySelector('h2:nth-of-type(1)');
+            $h2.addEventListener('click', function(){
+                alert('열공~!');
+            });
+
+			// 문제2) .frame에 대한 mouseover 이벤트를 작성하시오.
+			// 클릭하면 "!!!CUTE!!!" 메세지 출력
+            const $frame = document.querySelector('.frame');
+            $frame.addEventListener('mouseover', function(){
+                alert('!!!CUTE!!!');
+            });
+
+
+			// 문3) #tit에 대한 dblclick 이벤트를 작성하시오.
+			// 클릭하면 "살려주세요..." 메세지 출력
+            const $tit = document.getElementById('tit');
+            $tit.addEventListener('dblclick', function(){
+                alert('살려주세요...');
+            });
+		</script>
+	</body>
+</html>

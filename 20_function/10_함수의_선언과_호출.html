@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<script>
+		/*
+			1. 함수는 우리가 사용할 여러줄의 명령문을 묶은 것으로
+				코드 덩어리라고 생각할 수 있다.
+				
+			2. 함수는 일괄 반복처리를 할때 사용한다.
+			
+			3. 함수의 선언 - 선언식 함수
+			
+				function 함수명(){
+					여러줄의 명령문;
+				}
+		
+			4. 함수의 호출 - 함수실행
+				함수명();
+		*/
+	</script>
+</head>
+<body>
+	<h1>함수의 선언과 호출</h1>
+	
+	<script>
+		//커피한잔 만들기 - 커피, 프림, 설탕
+		/*
+		document.write(`커피 1스푼<br />`);
+		document.write(`프림 1스푼<br />`);
+		document.write(`설탕 1스푼<br />`);
+		document.write(`커피한잔 완성~!<br />`);
+		document.write(`---------------------<br />`);
+		
+		document.write(`커피 1스푼<br />`);
+		document.write(`프림 1스푼<br />`);
+		document.write(`설탕 1스푼<br />`);
+		document.write(`커피한잔 완성~!<br />`);
+		document.write(`---------------------<br />`);
+		
+		document.write(`커피 1스푼<br />`);
+		document.write(`프림 1스푼<br />`);
+		document.write(`설탕 1스푼<br />`);
+		document.write(`커피한잔 완성~!<br />`);
+		document.write(`---------------------<br />`);	
+		*/
+		
+		//커피머신 함수의 선언
+		function makeCoffee(){
+			document.write(`커피 1스푼<br />`);
+			document.write(`프림 1스푼<br />`);
+			document.write(`설탕 1스푼<br />`);
+			document.write(`커피한잔 완성~!<br />`);
+			document.write(`---------------------<br />`);	
+		}
+		
+		//함수호출
+		makeCoffee();
+		makeCoffee();
+		makeCoffee();
+		
+		for(let i=0;i<100;i++){
+			makeCoffee();
+		}
+		
+
+		//문제1) sum 함수를 선언하시오.
+
+		//문제2) add 함수를 선언하시오.
+
+		//문제3) mulFn 함수를 선언하시오
+
+		//문제4) secFn 함수를 선언하시오		
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

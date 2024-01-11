@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+    <style>
+        body{text-align: center;}
+        h1{color: blue;}
+        button{
+            display: block;
+            margin: 30px auto;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>브라우저에서 이벤트 처리</h1>
+
+    <pre>
+        1. 이벤트란? 브라우저에서 사용자의 동작에 따라 발생하는 사건을 뜻한다.
+            웹브라우저에서 사용자가 어떤 행동을 하면 브라우저에 설치된 
+            여러 센서가 작동하여 이벤트가 발생한다.
+
+        2. 이벤트 종류
+            1) click - 요소를 클릭할 때 발생
+            2) mouseover, mouseout - 요소의 상공에 마우스 포인터가 출연했을 때
+            3) mouseenter, mouseleave - 요소의 내부에 마우스 포인터가 진입했을 때
+
+        3. 이벤트를 이용해서 사용자와 상호작용하는 웹프로그램을 만들수 있다.
+
+        4. 이벤트처리는 사용자의 특정 행위에 따라 반응하는 코드를 작성하는 것
+
+        5. 이벤트핸들러 - 이벤트가 발생했을 때 실행되는 함수(예약의 개념)
+    </pre>
+
+    <button onclick="alert('1등 당첨~!')">클릭하면 로또 당첨</button>
+
+    <!-- 이미지를 클릭했을 때 msgFn() 함수를 호출해달라고 예약 -->
+    <img onclick="msgFn('2023년 늘 행복하세요~!')" src="https://bit.ly/3lEMhSF" alt="#">
+
+    <script>
+        //img 클릭했을 때 '2023년 늘 행복하세요~!' 알림메세지를 출력하시오.
+        function msgFn(msg){
+            alert(msg);
+        }
+    </script>
+
+    
+</body>
+</html>

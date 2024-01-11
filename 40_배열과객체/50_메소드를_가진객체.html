@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>메소드를 가진 객체</h1>
+	
+	<pre>
+		객체의 프로퍼티에 할당된 함수를 메소드라고 부른다.
+		
+		1. 호출할 때 앞에 .(점) 찍고 호출하면 메소드
+		
+		2. 호출할 때 앞에 .(점) 없이 호출하면 함수
+	</pre>
+	
+	<hr />
+	
+	<script>
+		const duly = {
+			name : '아기공룡둘리',
+			age : 7,
+			address : '쌍문동',
+			
+			info : function(){
+				document.write(`나는 ${this.address}에 사는 ${this.age}살 ${this.name}입니다.`);
+			}
+		}
+		
+		duly.info();//메소드 호출
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

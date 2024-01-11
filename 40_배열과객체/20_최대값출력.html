@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>최대값 찾기</h1>
+	
+	<pre>
+		문제) prompt() 함수를 이용하여 10개의 수를 입력받아, 
+		그 중에서 가장 큰 수를 출력하시오.
+	</pre>
+	
+	<hr />
+	
+	<script>
+		/*
+			1. nums 배열에 10개의 숫자를 입력받는다.
+			
+			2. 맨처음 원소의 값을 최대값을 저장할 변수 max에 할당한다.
+			
+			3. max에 저장된 값을 nums 배열의 모든 원소와 비교하여
+			   가장 큰값을 최종적으로 max에 저장한다.
+			   
+			4. max 값을 출력한다.
+		*/
+		
+		const nums = [];
+		
+		//10개 숫자입력
+		for(let i=0;i<10;i++){
+			nums[i] = parseInt(prompt('임의의 숫자를 입력하세요'));
+		}
+		
+		//console.log('nums =', nums);
+		
+		//최대값을 저장할 변수초기화
+		let max = nums[0];
+		
+		//최대값 찾기
+		for(let i=0;i<10;i++){
+			if(nums[i]>max){
+				max = nums[i];
+			}
+		}
+		
+		//출력
+		document.write(`최대값은 ${max} 입니다.`);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript</title>
+</head>
+<body>
+	<h1>순차적인 비동기처리 실행순서에 초점을 맞춘 Promise()</h1>
+	
+	<script>
+		//비동기로 데이터를 요청하는 주소
+		const requestURL_1 = `https://api.openweathermap.org/data/2.5/weather?lat=${`37.574187`}&lon=${`126.976882`}&appid=${`f484e2a5d894868fc44107169564f8f6`}&units=metric`;
+		const requestURL_2 = `http://mvcweb.dothome.co.kr/40-simple-response-get.php?id=둘리`;
+		const requestURL_3 = `http://mvcweb.dothome.co.kr/get-response.php?ans=100`;
+		
+		
+		function ajaxReqFn(url){
+			
+			const myPromise = new Promise((resolve,reject)=>{
+				
+				//비동기작업
+				xhr = new XMLHttpRequest();
+				
+				//서버에서 응답이 왔을 때 실행할 함수 등록
+				xhr.onreadystatechange = function(){
+					if (xhr.readyState === 4){//비동기 요청에 대한 처리가 끝났다면(성공 or 실패)
+						
+						if(xhr.status === 200){//성공했다면
+						
+							//데이터 역직렬화(객체화)
+							const res = JSON.parse(xhr.response);
+	
+							resolve(res);
+							
+						}else{//실패했다면
+							alert('문제가 발생했습니다.');
+						}
+					}
+				};
+				
+				xhr.open('get',`${url}`);
+				
+				xhr.send();				
+				
+			});
+			
+			return myPromise;
+			
+		}
+		
+		
+		//수신한 데이터를 처리하는 코드
+		
+		
+		ajaxReqFn(requestURL_1).then((res)=>{
+			
+			console.log('1번째 응답정보 =', res);
+			return ajaxReqFn(requestURL_2);
+			
+		}).then((res)=>{
+			
+			console.log('2번째 응답정보 =', res);
+			return ajaxReqFn(requestURL_3);
+			
+		}).then((res)=>{
+			
+			console.log('3번째 응답정보 =', res);
+			return ajaxReqFn(requestURL_3);
+			
+		})
+		
+		
+		
+		
+	</script>
+</body>
+</html>

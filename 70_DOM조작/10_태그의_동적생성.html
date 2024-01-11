@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body>
+	<h1>태그의 동적 생성</h1>
+	
+	<!-- 
+		엄밀히 말해서 태그는 3가지 구성요소로 이루어져 있다.
+			1. 요소노드 -> elementNode
+			2. 속성노드 -> attributeNode
+			3. 텍스트노드 -> textNode
+	
+		<h2 name="둘리" address="기흥">안녕, 자바스크립트~!</h2>
+	-->
+	
+	<script>
+		//자바스크립트로 태그를 동적으로 생성하는 과정
+		
+		//1. 요소노드 생성
+		const $h2 = document.createElement('h2');
+		
+		//2. 속성노드를 생성(추가,설정)
+		$h2.setAttribute('name','둘리');
+		$h2.setAttribute('address', '기흥');
+		
+		
+		//3. 텍스트 노드 생성
+		//const $txt = document.createTextNode('안녕, 자바스크립트~!');
+		
+		//3 텍스트를 추가(설정)하는 방식은 아래의 결합작업이 필요없다.
+		$h2.textContent = 'HELLO, JAVASCRIPT~!';
+		
+		//4. 요소노드에 텍스트노드 결합
+		//$h2.append($txt);
+		
+		//5. body에 결합(추가)
+		document.body.appendChild($h2);
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+</head>
+<body style="text-align:center;">
+
+    <h1>
+        입력받은 두수
+        <span class="x">?</span>,
+        <span class="y">?</span>
+        의 합과 차를 출력
+    </h1>
+
+    <h2>두수의 합 : <span class="sum">?</span></h2>
+
+    <h2>두수의 차(절대값) : <span class="diff">?</span></h2>
+
+    <button>프로그램 실행</button>
+	
+	<pre>
+        문제) 버튼을 click하면 사용자로부터 입력받은 두수를 각각 x, y에 저장후
+              두 수의 합과 차를 sum, diff 변수에 할당하여 화면에 출력하시오.
+	</pre>
+	
+	<hr />
+	
+	<script>
+		const $btn = document.querySelector('button');
+		
+		//버튼에 대한 click 이벤트 구문
+		$btn.addEventListener('click', function(){
+			
+			const x = parseInt(prompt('x 값을 입력하세요'));
+			const y = parseInt(prompt('y 값을 입력하세요'));
+			
+			const sum = x + y;			
+			const diff = Math.abs(x-y);
+			
+			const $x = document.querySelector('.x');
+			const $y = document.querySelector('.y');
+			const $sum = document.querySelector('.sum');
+			const $diff = document.querySelector('.diff');
+			
+			//특정 DOM의 텍스트 내용을 조작 
+			$x.textContent = x;
+			$y.textContent = y;
+			$sum.textContent = sum;
+			$diff.textContent = diff;			
+		});
+	</script>
+</body>
+</html>
