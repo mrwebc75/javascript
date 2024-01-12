@@ -1,6 +1,10 @@
 @charset "utf-8";
 
 header{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
 	background-color: rgba(0,0,0,1);
 }
 
@@ -9,7 +13,6 @@ header>.container{
 	width: 1200px;
 	height: 66px;
 	margin: 0 auto;
-	outline: 1px solid yellow;
 }
 
 header>.container>h1.logo{
@@ -54,7 +57,7 @@ header>.container>nav>.gnb>li:hover>a{
 	color: orange;
 }
 
-
+section{margin-top: 66px;}
 section>article{
 	display: flex;
 	justify-content: center;
@@ -63,7 +66,7 @@ section>article{
 }
 
 section>article.cont1{
-	height: 500px;
+	height: 1000px;
 	color: #fff;
 	background-color: plum;
 }
