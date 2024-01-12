@@ -42,13 +42,15 @@ window.addEventListener('scroll', function(){
 	
 	//for문을 이용하여 5개의 if 구문을 하나로 합침
 	for(let i=0;i<$articles.length;i++){
-		if(scrollTop>=arrTopVal[i]-266){		
+		if(scrollTop>=arrTopVal[i]-66){		
 			oldIdx = nowIdx;
 			nowIdx = i;		
 			
 			//활성화 표시
 			$mnus[oldIdx].parentElement.classList.remove('on');//on 제거
 			$mnus[nowIdx].parentElement.classList.add('on');//on 추가
+		} else if(scrollTop<arrTopVal[0]-66){//비주얼영역
+			$mnus[nowIdx].parentElement.classList.remove('on');//on 제거
 		}	
 	}
 
