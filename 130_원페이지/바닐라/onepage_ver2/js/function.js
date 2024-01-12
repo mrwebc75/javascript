@@ -23,10 +23,6 @@ console.log('arrTopVal =', arrTopVal);
 //반복되는 코드를 함수화
 const pageAni = function(){
 
-	//활성화 표시
-	$mnus[oldIdx].parentElement.classList.remove('on');//on 제거
-	$mnus[nowIdx].parentElement.classList.add('on');//on 추가
-	
 	//window.scrollTo(0, 500*idx);
 	
 	//스크롤바의 top값에 변화를 줘서 smooth하게 움직이게 설정
@@ -40,7 +36,22 @@ const pageAni = function(){
 
 //window 객체에 대한 scroll 이벤트 구문
 window.addEventListener('scroll', function(){
-	console.log('scroll 이벤트 발생~!');
+	
+	const scrollTop = Math.ceil(window.scrollY);//현재 스크롤바의 top 값
+	console.log('scrollTop =', scrollTop);
+	
+	//for문을 이용하여 5개의 if 구문을 하나로 합침
+	for(let i=0;i<$articles.length;i++){
+		if(scrollTop>=arrTopVal[i]-66){		
+			oldIdx = nowIdx;
+			nowIdx = i;		
+			
+			//활성화 표시
+			$mnus[oldIdx].parentElement.classList.remove('on');//on 제거
+			$mnus[nowIdx].parentElement.classList.add('on');//on 추가
+		}	
+	}
+
 });
 
 
