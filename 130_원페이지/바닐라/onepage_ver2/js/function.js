@@ -21,14 +21,14 @@ console.log('arrTopVal =', arrTopVal);
 //=> [66, 1066, 1911, 2711, 3311]
 
 //반복되는 코드를 함수화
-const pageAni = function(){
+const pageAni = function(idx){
 
 	//window.scrollTo(0, 500*idx);
 	
 	//스크롤바의 top값에 변화를 줘서 smooth하게 움직이게 설정
 	window.scrollTo({
 		left:0,
-		top:arrTopVal[nowIdx]-66,
+		top:arrTopVal[idx]-66,
 		behavior:'smooth'
 	});
 };
@@ -58,12 +58,9 @@ window.addEventListener('scroll', function(){
 //메뉴에 대한 클릭이벤트
 $mnus.forEach(($mnu, idx)=>{
 	$mnu.addEventListener('click', (evt)=>{
-		evt.preventDefault();
+		evt.preventDefault();			
 		
-		oldIdx = nowIdx;
-		nowIdx = idx;		
-		
-		pageAni();
+		pageAni(idx);
 	})
 });
 
@@ -71,11 +68,8 @@ $mnus.forEach(($mnu, idx)=>{
 //화살표에 대한 클릭이벤트
 $top.addEventListener('click', function(evt){
 	evt.preventDefault();
-		
-	oldIdx = nowIdx;
-	nowIdx = 0;		
-	
-	pageAni();
+
+	pageAni(0);
 });
 
 //로고에 대한 클릭이벤트
