@@ -1,6 +1,7 @@
+const $logo = document.querySelector('h1.logo');
 const $mnus = document.querySelectorAll('header>.container>nav>.gnb>li>a');
-const $top = document.querySelector('a.top');
 const $articles = document.querySelectorAll('article');
+const $top = document.querySelector('a.top');
 
 //활성화표시에 사용할 변수
 let nowIdx = 0;
@@ -37,6 +38,12 @@ const pageAni = function(){
 };
 
 
+//window 객체에 대한 scroll 이벤트 구문
+window.addEventListener('scroll', function(){
+	console.log('scroll 이벤트 발생~!');
+});
+
+
 //메뉴에 대한 클릭이벤트
 $mnus.forEach(($mnu, idx)=>{
 	$mnu.addEventListener('click', (evt)=>{
@@ -60,7 +67,12 @@ $top.addEventListener('click', function(evt){
 	pageAni();
 });
 
-
+//로고에 대한 클릭이벤트
+$logo.addEventListener('click', function(evt){
+	evt.preventDefault();
+		
+	$top.click();//클릭이벤트만 강제발생 가능 
+});
 
 
 
