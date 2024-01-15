@@ -29,19 +29,25 @@ $btnPrev.addEventListener('click', function(evt){
 	evt.preventDefault();
 	
 	oldIdx = nowIdx;
-	
-	if(nowIdx>0){
-		nowIdx--;
-	}else{
-		nowIdx=4;
-	}
-	
-	//활성화표시
-	$indicators[nowIdx].parentElement.classList.add('on');
-	$indicators[oldIdx].parentElement.classList.remove('on');
+	nowIdx--;
 	
 	//컨테이너 이동
 	$container.style.left = -(100*nowIdx)+'%';	
+
+	if(nowIdx === 0){
+		setTimeout(function(){
+			$container.style.transition = 'none';
+			$container.style.left = '-500%';
+		},400);
+		nowIdx = 5;
+	}
+
+	$container.style.transition = 'all 0.4s ease-in-out';
+
+	//활성화표시
+	//$indicators[nowIdx].parentElement.classList.add('on');
+	//$indicators[oldIdx].parentElement.classList.remove('on');
+	
 });
 
 //다음버튼
