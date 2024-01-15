@@ -66,6 +66,11 @@ h1{
 	text-indent: -9999px;
 }
 
+#slides>.slides-pagination>li:hover>a,
+#slides>.slides-pagination>li.on>a{
+	border: 2px solid skyblue;
+	box-sizing: border-box;	
+}
 
 
 address{
