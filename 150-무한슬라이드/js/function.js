@@ -45,8 +45,8 @@ $btnPrev.addEventListener('click', function(evt){
 	$container.style.transition = 'all 0.4s ease-in-out';
 
 	//활성화표시
-	//$indicators[nowIdx].parentElement.classList.add('on');
-	//$indicators[oldIdx].parentElement.classList.remove('on');
+	$indicators[nowIdx-1].parentElement.classList.add('on');
+	$indicators[oldIdx-1].parentElement.classList.remove('on');
 	
 });
 
