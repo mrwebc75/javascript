@@ -44,7 +44,7 @@ $btnPrev.addEventListener('click', function(evt){
 
 	$container.style.transition = 'all 0.4s ease-in-out';
 
-	//활성화표시
+	//활성화표시 
 	$indicators[nowIdx-1].parentElement.classList.add('on');
 	$indicators[oldIdx-1].parentElement.classList.remove('on');
 	
@@ -55,19 +55,25 @@ $btnNext.addEventListener('click', function(evt){
 	evt.preventDefault();
 	
 	oldIdx = nowIdx;
-	
-	if(nowIdx<4){
-		nowIdx++;
-	}else{
-		nowIdx=0;
-	}
-	
-	//활성화표시
-	$indicators[nowIdx].parentElement.classList.add('on');
-	$indicators[oldIdx].parentElement.classList.remove('on');
+	nowIdx++;
 	
 	//컨테이너 이동
-	$container.style.left = -(100*nowIdx)+'%';	
+	$container.style.left = -(100 * nowIdx) + '%';
+
+	if (nowIdx === 6) {
+		setTimeout(function() {
+			$container.style.transition = 'none';
+			$container.style.left = '-100%';
+		}, 400);
+
+		nowIdx = 1;
+	}
+
+	$container.style.transition = 'all 0.4s ease-in-out';
+
+	//인디케이터 활성화표시
+	$indicators[nowIdx - 1].parentElement.classList.add('on');
+	$indicators[oldIdx - 1].parentElement.classList.remove('on');
 });
 
 
